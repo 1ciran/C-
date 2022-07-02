@@ -943,3 +943,189 @@ int main()
 
     return 0;
 }
+
+
+qns.17
+    // write a program using template to find the sum of first and 
+// last element of array of size N of type int and float
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+T SumElement(T arr[], int size)
+{
+    return(arr[0] + arr[size -1]);
+}
+
+int main()
+{
+    int i, size, num[100];
+    float  fnum[100];
+
+    cout << "enter the size of array" << endl;
+    cin >> size ;
+
+    cout << "enter the number of arrays integer" <<endl;
+    for( i = 0; i < size; i++)
+    {
+        cin >> num[i];
+    }
+
+    cout << "enter the number of arrays float" <<endl;
+    for(  i = 0; i < size; i++)
+    {
+        cin >> fnum[i];
+    }
+
+
+    cout << " sum of first and last element is integer "<< endl;
+    cout << SumElement(num, size);
+     cout << "\n sum of first and last element is float ";
+    cout << SumElement(fnum, size);
+
+    return 0;
+}
+
+
+qns.17
+    // WAP to swap two varible using function template
+#include <iostream>
+using namespace std;
+ 
+template <class T>
+void Swap( T &n1, T &n2)
+{
+    T temp;
+    temp = n1;
+    n1 = n2;
+    n2 = temp;
+
+}
+int main()
+{
+    int  first, second;
+    char A, B;
+    cout << " enter  first value " ;
+    cin >> first;
+    cout <<"\n enter second value " << endl;
+    cin >> second;
+     
+   
+
+    cout << " \n for character " << endl;
+    cout << " enter  first name " ;
+    cin >> A;
+    cout <<"\n enter second name ";
+    cin >> B;
+
+    Swap(first, second);
+    cout << first << " , " << second << endl;
+
+    Swap(A, B);
+    cout << A << " , " << B;
+
+     return 0;
+  
+}
+
+
+qns.18
+    ////example of exception handling
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a=10, b=0, c;
+    // try block activates exception handling
+    try 
+    {
+        if(b == 0)
+        {
+            // throw custom exception
+            throw "Division by zero not possible";
+            c = a/b;
+        }
+    }
+    catch(char* ex) // catches exception
+    {
+        cout<<ex;
+    }
+    return 0;
+}
+
+
+qns.19
+     
+ //example of virtual function
+ #include <iostream>
+ using namespace std;
+
+ class Base
+ {
+     public:
+     virtual void print()
+     {
+         cout << " Base function" << endl;
+     }
+ };
+
+ class Derived : public Base
+ {
+     public :
+         void print()
+         {
+         cout << " derived function " << endl;
+
+         }
+ };
+
+ int main()
+ {
+     Derived derived1;
+   
+
+     Base* base1 = &derived1;
+
+     base1 -> print();
+
+     return 0;
+ }
+
+qns.20
+    //example of virtual function
+#include <iostream>
+using namespace std;
+
+
+class A{
+    public:
+    void show(){
+        cout << " hello from A" <<endl;
+    }
+};
+
+class B: virtual public A {
+
+};
+
+class C: virtual public A{
+
+};
+
+class D: public B, public C{
+
+};
+
+
+int main()
+{
+    D obj;
+    obj.show();
+
+
+    return 0;
+}
+
+
+
