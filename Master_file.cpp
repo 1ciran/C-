@@ -33,6 +33,10 @@ int main(){
     return 0;
 }
 
+
+
+
+
 /* Question no.1- program to demonstrate the working of public and private in c++ class
 */
 
@@ -73,6 +77,10 @@ int main(){
 
     return 0;
 }
+
+
+
+
 
 /* Question no.3- write a program to create a class named employee_ info with data member 
 emp_id and Emp_name. create another class name finance_info from Employee_info
@@ -137,6 +145,10 @@ int main(){
     return 0;
 }
 
+
+
+
+
 /* Question no.4 write a program using class to add two object of class name Time , passing object as 
 argument. the time class contain hours, minute and seconds as its private members.
 construct appropriate member functions input should be interactive */
@@ -182,6 +194,9 @@ int main(){
     return 0;
 
 }
+
+
+
 
 /* Question no.5 - write a program to create a class Emp with data member (Id, Name, Address)
 drive a class Salary with data member (basicsal, post) and again derive
@@ -265,6 +280,9 @@ int main()
   return 0;
 }
 
+
+
+
 /*Qestion no.6 - write an OOP to create a class name student with data member result 
 and name . create another class from student name Mark with data member 
 int_score. create an independent class Sports  with data member
@@ -331,6 +349,10 @@ int main()
     return 0;
 
 }
+
+
+
+
 
 /*qustion no. 7 - write a program to demonstrate writing an 
 object to a data file and reading it back */ 
@@ -533,4 +555,343 @@ int main()
      sd_1.read_data();
      
      return 0;
+}
+
+
+
+qns 8. 
+ // c++ program to illustrate the concept of constructors
+
+#include <iostream>
+using namespace std;
+
+class integer
+{
+public:
+  int x, y;
+
+// Default Constructor declared
+  integer()
+  {
+    x = 45;
+    y = 10;
+  }
+};
+
+int main()
+{
+  // Default constructor called automatically when the object is created
+  integer a;
+  cout << "x: " << a.x << endl << "y: " << a.y;
+  return 0;
+}
+
+
+
+
+qns 9.
+    // C++ program to illustrate parameterized constructors
+
+#include <iostream>
+using namespace std;
+
+class integer
+{
+private:
+  int a, b;
+public:
+  // Parameterized Constructor
+  integer(int x, int y)
+  {
+    a = x;
+    b = y;
+  };
+
+  int getX()
+  {
+    return a;
+  };
+
+  int getY()
+  {
+    return b;
+  };
+};
+int main()
+{
+  integer v(10, 15); // Constructor called
+
+  cout << "a = " << v.getX() << endl; // values assigned by constructor accessed
+  cout<< "b = " << v.getY() << endl;
+
+  return 0;
+}
+
+
+
+
+qns.10
+    //write a program to illustrate copy contructor
+
+#include <iostream>
+using namespace std;
+
+// declare a class
+class Rectriangle {
+  private:
+    double length;
+    double height;
+
+  public:
+
+    // initialize variables with parameterized constructor
+    Rectriangle(double len, double hgt) {
+      length = len;
+      height = hgt;
+    }
+
+    // copy constructor with a Rectriangle object as parameter
+    // copies data of the obj parameter
+    Rectriangle(Rectriangle &obj) {
+      length = obj.length;
+      height = obj.height;
+    }
+
+    double calculateArea() {
+      return length * height;
+    }
+};
+
+int main() {
+  // create an object of Rectriangle class
+  Rectriangle Rectriangle1(10.5, 8.6);
+
+  // copy contents of Rectriangle1 to Rectriangle2
+  Rectriangle Rectriangle2 = Rectriangle1;
+
+  // print areas of Rectriangle1 and Rectriangle2
+  cout << "Area of Rectriangle 1: " << Rectriangle1.calculateArea() << endl;
+  cout << "Area of Rectriangle 2: " << Rectriangle2.calculateArea();
+
+  return 0;
+}
+
+
+
+qns.11
+    // c++ program to illustrate multiple constructor
+#include <iostream>
+using namespace std;
+
+class complex
+{
+  int a, b;
+public:
+   int x, y;
+  complex() // default constructor
+  {
+    a= 10;
+    b=45;
+  };
+  complex( int x, int y) // parameterized constructor
+  {
+    a=x;
+    b=y;
+  };
+  complex( complex & v)	// copy constructor
+  {
+    a=v.a;
+    b=v.b;
+  };
+
+    double calculateArea() {
+      return a * b;
+    }
+};
+
+
+int main()
+{
+   
+    complex w;
+    complex p(14,15);
+    complex c = p;
+
+    cout << "x: " << w.x << endl << "y: " << w.y << endl;;
+    cout << "Area " << p.calculateArea() << endl;
+    cout << "area " << c.calculateArea();
+
+    return 0;
+   
+}
+
+
+qns.12
+    
+//c++ program of copyconstructor
+#include<iostream>
+using namespace std;
+class Samplecopyconstructor
+{
+    private:
+    int x, y;   //data members
+    
+    public:
+    Samplecopyconstructor(int x1, int y1)
+    {
+        x = x1;
+        y = y1;
+    }
+    
+    /* Copy constructor */
+    Samplecopyconstructor (const Samplecopyconstructor &sam)
+    {
+        x = sam.x;
+        y = sam.y;
+    }
+    
+    void display()
+    {
+        cout<<x<<" "<<y<<endl;
+    }
+};
+/* main function */
+int main()
+{
+    Samplecopyconstructor obj1(10, 15);     // Normal constructor
+    Samplecopyconstructor obj2 = obj1;      // Copy constructor
+    cout<<"Normal constructor : ";
+    obj1.display();
+    cout<<"Copy constructor : ";
+    obj2.display();
+    return 0;
+}
+
+
+qns.13
+    
+// C++ program to illustrate Constructor overloading
+
+#include <iostream>
+using namespace std;
+
+class shape
+{
+  int a, b;
+public:
+  // Constructor with no argument
+  shape()
+  {
+    a= 2;
+    b= 3;
+  }
+  // constructor with one argument
+  shape(int x)
+  {
+    a=b=x;
+  }
+  // Constructor with two arguments
+  shape(int x, int y)
+  {
+    a= x;
+    b= y;
+  }
+  int area(void)
+  {
+    return(a*b);
+  }
+  void display()
+  {
+    cout<<"area="<< area() <<endl;
+  }
+};
+int main()
+{
+  // Constructor Overloading with two different constructors of class name
+  shape s;
+  shape s2(6);
+  shape s3( 3, 2);
+
+  s.display();
+  s2.display();
+  s3.display();
+  return 0;
+}
+
+
+
+qns.14
+    /*.....A program to feature the concept of constructor overloading.......... */
+#include <iostream>
+using namespace std;
+class ABC
+{
+     private:
+        int x,y;
+     public:
+        ABC ()       //constructor 1 with no arguments
+       {
+            x = y = 0;
+        }
+        ABC(int a)    //constructor 2 with one argument
+       {
+             x = y = a;
+        }
+        ABC(int a,int b)    //constructor 3 with two argument
+        {
+              x = a; 
+              y = b;
+        }
+        void display()
+        {
+              cout << "x = " << x << " and " << "y = " << y << endl;
+        }
+};
+ 
+int main()
+{
+     ABC cc1; //constructor 1
+     ABC cc2(10); //constructor 2
+     ABC cc3(10,20); //constructor 3
+     cc1.display();
+     cc2.display();
+     cc3.display();
+     return 0;
+ }
+
+
+qns.15
+    
+//c++ program to illustrate try catch throws
+#include <iostream>
+using namespace  std;
+
+double division(int x , int y)
+{
+    if(y == 0)
+    {
+    throw " division by zero condition";
+    }
+
+    return (x/y);
+}
+
+
+int main()
+{
+    int a,b;
+    double z;
+
+    cout << " enter the value of x" << endl;
+    cin>>a;
+    cout << "enter the value of y" << endl;
+    cin>>b;
+
+    try{
+        z = division(a, b);
+        cout << " z = " << z << endl;
+    }catch( const char* msg){
+        cerr << msg << endl;
+    }
+    return 0;
 }
