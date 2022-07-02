@@ -895,3 +895,51 @@ int main()
     }
     return 0;
 }
+
+
+
+qns.16 
+    // write a program to N number in ascending order using function template
+#include <iostream>
+using namespace std;
+
+template <class T>
+
+void asc( T t[], int n)
+{
+    int i, j;
+    for(i = 0; i < n; i++)
+    {
+        for(j = i+1; j < i; j++)
+        {
+            if(t[j] < t[i])
+            {
+                T temp;
+                temp = t[i];
+                t[i] = t[j];
+                t[j] = temp;
+            }
+        }
+    }
+}
+
+int main()
+{   
+     int i, N, n[100];
+    cout << "enter N " << endl;
+    cin >> N;
+    cout <<" enter numbers \n";
+    for( i=0; i< N; i++)
+    {
+        cin >> n[i];
+    }
+
+    asc(n,N);
+    cout << "afer sorting" << endl;
+    for(i=0; i<N; i++)
+    {
+        cout<<n[i] <<",";
+    }
+
+    return 0;
+}
