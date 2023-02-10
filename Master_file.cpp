@@ -1128,4 +1128,93 @@ int main()
 }
 
 
+// 2017 ko file handling ko program 
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+  char modelNum [100];
+  int s_size;
+  int RAM;
+  string line;
 
+ ofstream outshop;
+ outshop.open("mobile.txt", ios::out);
+
+ for(int i=0; i<2; i++)
+ {
+    
+
+    cout <<" Enter Model number = " << endl;
+    cin.getline(modelNum, 100);
+    outshop <<"Model Number : " << modelNum << endl;
+    
+    cout << " Enter Screen size = " << endl;
+    cin >> s_size;
+    cin.ignore();
+    outshop << "Screen size : " << s_size << " inches"<< endl;
+
+    cout << " Enter RAM size = " << endl;
+    cin >> s_size;
+    cin.ignore();
+    cout<< "\n" <<endl;
+    outshop << "RAM size : " << s_size << " gb"<<"\n" <<endl;
+
+ }
+ outshop.close();
+
+ ifstream inshop;
+ inshop.open("mobile.txt", ios :: in);
+
+ while(inshop)
+ {
+    getline(inshop, line);
+    cout << line << endl;
+ }
+ cout <<"\n" << endl;
+ inshop.close();
+
+return 0;
+    
+}   
+
+
+
+
+// 2019 ko file handling ko program 
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+     string line;
+     int age;
+     char data[100];
+
+     ofstream ofile;
+     ofile.open("2019file.txt", ios::out);
+
+     cout <<"name " << endl;
+     cin.getline(data, 100);
+     ofile <<  data << endl;
+
+     cout <<"age ";
+     cin >> age ;
+     
+     
+     ofile << age << "gb" <<endl;
+
+   
+     ofile.close();
+
+
+     ifstream infile;
+     infile.open("2019file.txt", ios::in);
+
+     getline(infile, line);
+     cout << line <<endl;
+   
+     infile.close();
+     return 0;
+}
