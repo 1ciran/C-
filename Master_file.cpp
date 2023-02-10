@@ -1127,8 +1127,12 @@ int main()
     return 0;
 }
 
-
-// 2017 ko file handling ko program 
+qns no. 21
+/ * Suppose an electornic store sells ten types of mobile phone. each
+phone has its own model number , creen size , ram size and price. write 
+a program to create a file named "mbile.text" that store information  for ten 
+mobile phones and display all the information
+*/
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -1181,8 +1185,10 @@ return 0;
 
 
 
-
-// 2019 ko file handling ko program 
+qns no 22
+/ * write a program to demonstrate writing an object to data file
+and reading it back
+*/ 
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -1218,3 +1224,153 @@ int main()
      infile.close();
      return 0;
 }
+
+
+qns no. 23
+    
+//write a program to overload binary '+' operator
+#include<iostream>
+using namespace std;
+
+class Complex {
+private:
+	int real, imag;
+public:
+	Complex(int r = 0, int i =0) {real = r; imag = i;}
+	
+	// This is automatically called when '+' is used with
+	// between two Complex objects
+	Complex operator + (Complex const &obj) {
+		Complex res;
+		res.real = real + obj.real;
+		res.imag = imag + obj.imag;
+		return res;
+	}
+	void print() { cout << real << " + i" << imag << endl; }
+};
+
+int main()
+{
+	Complex c1(10, 5), c2(2, 4);
+	Complex c3 = c1 + c2; // An example call to "operator+"
+	c3.print();
+}
+
+
+qns no. 24
+
+// C++ program to overload the binary operator -
+// This program Subtract two complex numbers
+#include <iostream>
+using namespace std;
+
+class Complex
+{
+    private:
+      float real;
+      float imag;
+    public:
+       Complex(): real(0), imag(0){ }
+       void input()
+       {
+           cout << "Enter real and imaginary parts respectively: ";
+           cin >> real;
+           cin >> imag;
+       }
+
+       // Operator overloading
+       Complex operator - (Complex c2)
+       {
+           Complex temp;
+           temp.real = real - c2.real;
+           temp.imag = imag - c2.imag;
+
+           return temp;
+       }
+
+       void output()
+       {
+           if(imag < 0)
+               cout << "Output Complex number: "<< real << imag << "i";
+           else
+               cout << "Output Complex number: " << real << "+" << imag << "i";
+       }
+};
+
+int main()
+{
+    Complex c1, c2, result;
+
+    cout<<"Enter first complex number:\n";
+    c1.input();
+
+    cout<<"Enter second complex number:\n";
+    c2.input();
+
+    // In case of operator overloading of binary operators in C++ programming, 
+    // the object on right hand side of operator is always assumed as argument by compiler.
+    result = c1 - c2;
+    result.output();
+
+    return 0;
+}
+
+
+
+
+qns no.25
+ // C++ program to overload the binary operator +
+// This program adds two complex numbers
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+   private:
+    float real;
+    float imag;
+
+   public:
+    // Constructor to initialize real and imag to 0
+    Complex() : real(0), imag(0) {}
+
+    void input() {
+        cout << "Enter real and imaginary parts respectively: ";
+        cin >> real;
+        cin >> imag;
+    }
+
+    // Overload the + operator
+    Complex operator + (const Complex& obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+
+    void output() {
+        if (imag < 0)
+            cout << "Output Complex number: " << real << imag << "i";
+        else
+            cout << "Output Complex number: " << real << "+" << imag << "i";
+    }
+};
+
+int main() {
+    Complex complex1, complex2, result;
+
+    cout << "Enter first complex number:\n";
+    complex1.input();
+
+    cout << "Enter second complex number:\n";
+    complex2.input();
+
+   // complex1 calls the operator function
+   // complex2 is passed as an argument to the function
+    result = complex1 + complex2;
+    result.output();
+
+    return 0;
+} 
+
+
